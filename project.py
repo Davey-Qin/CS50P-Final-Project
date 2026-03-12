@@ -4,7 +4,7 @@ import os
 import sys
 
 # Get the actual data from CSV amd put it into a giant nested dictionary
-def get_courses(filepath):
+def load_courses(filepath):
     #check for existence
     if not os.path.exists(filepath):
         print(f"Error: File '{filepath}' not found.")
@@ -62,6 +62,74 @@ def get_courses(courses, section, number):
             f"Available courses: {', '.join(courses[section].keys())}"
         )
     return courses[section][number]
+
+def build_parser():
+    # Help for the users
+    parser = argparse.ArgumentParser(
+        prog="courses.py"
+        description="Look up college course information"
+        epilog="Example: python courses.py CISS 101 -ci"
+    )
+
+    # Positional arguments, which course to look up
+    # If in there, set to true. This will be utilized later as condtionals
+    # to decide what to display
+
+    parser.add_argument(
+        "section"
+        help="Course section identifier"
+    )
+
+    parser.add_argument(
+        "number",
+        help="Course number"
+    )
+
+    parser.add_argument(
+        "-n", "--name",
+        action="store_true",
+        help="Show course name"
+    )
+
+    parser.add_argument(
+        "-c", "--credits",
+        action="store_true",
+        help="Show number of credits"
+    )
+    
+    parser.add_argument(
+        "-p", "--prerequisites",
+        action="store_true",
+        help="Show prerequisites"
+    )
+
+    parser.add_argument(
+        "-i", "--instructors",
+        action="store_true",
+        help="Show intructor"
+    )
+
+    return parser
+
+# Function to finally display all the things.
+# Takes in course section, number, the actual course, and arguments
+def display_course(section, number, course, args):
+    print(f"\n{section} {number}")
+    print("-" * 20)
+    if args.name:
+        print(f"  Name: {course['name']}")
+    if args.credits:
+        print(f"  Credits: {course['credits']}")
+    if args.prerequisites:
+        prereqs = course["prerequisites"]
+        if prereqs:    
+            prereq_str = ", ".join(prereqs) 
+        else:
+            prereq_str = "None"
+        print(f"  Prereqs: {prereq_str}")
+    if args.instructors:
+        print(f"  Instructor: {course['instructor']}")
+
 
 
         

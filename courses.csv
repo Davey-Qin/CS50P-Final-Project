@@ -1,0 +1,32 @@
+section, number, name, credits, prerequisites, instructor
+CISS, 100, Introduction to Computer Science, 4, None, Peter Wood
+CISS, 103, Introduction to Linux Operating System, 3, None, Kirk Winans
+CISS, 109, Python Programming, 4, None, Peter Wood
+CISS, 110, Programming and Logic I, 4, None, Michelle Conway
+CISS, 111, Programming and Logic II, 4, CISS 110, Kirk Winans
+CISS, 120, Networking I - Data Communication, 3, None, Michelle Conway
+CISS, 121, Networking II - Network Administration, 3, CISS 120, Brian Gidley
+CISS, 125, Computer and Information Security, 3, CISS 120; CISS 121, Mathew Cantore
+CISS, 180, Introduction to Robotics, 4, None, Kirk Winans
+CISS, 210, Informaion Systems Analysis and Design, 4, CISS 110; CISS 111, Mizanur Rahman
+CISS, 218, Introduction to Machine Learning and Analytics, 4, CISS 100; CISS 110, Michelle Conway
+CISS, 220, Introduction to Web Design and Development, 3, CISS 100; CISS 110, Mathew Cantore
+CISS, 245, Ethical Hacking and Cybersecurity, 4, CISS 100; CISS 110; CISS 120; CISS 125, Kimberly Cardona
+CISS, 273, Network Security, 3, CISS 121; CISS 125, William Wohileber
+CMPT, 101, Computer Concepts and Applications, 3, None, Heather Chase
+CMPT, 110, Document Formatting on Microcomputers, 3, None, Elissa Baker
+CMPT, 111, Information Processing with Microsoft Word, 3, CMPT 110, Heather Chase
+CMPT, 115, Introduction to Business Analytics with Microsoft Excel, 3, None, Raymond Coco
+CMPT, 118, Introduction to Web Design and Content Management, 3, None, James Lobby
+CMPT, 119, Multimedia and Graphic Deisgn for Web, 3, CISS 100; CMPT 118, James Lobby
+CMPT, 120, Introduction to Database Concepts with Microsoft Access, 3, None, Lisa Grossman
+CMPT, 160, Advanced Integrated Information Processing, 3, CMPT 111; CMPT 115; CMPT 120, Johanna Mather
+MATH, 170, Precalculus, 4, None, Walton Yoder
+MATH, 180, Calculus I, 4, MATH 170, Joel Glickman
+MATH, 183, Discrete Mathematics, 4, MATH 180, Scott Bianco
+MATH, 190, Calculus II, 4, MATH 180, Nicolas Mazzei
+MATH, 200, Linear Algebra, 3, MATH 180, Nart Reynolds
+MATH, 205, Mathematical Statistical Analysis, 4, MATH 180; MATH 190, Scott Bianco
+MATH, 210, Calculus III, 4, MATH 190, Mark Tenney
+MATH, 220, Differential Equations, 4, MATH 190; MATH 200; MATH 210, Gary Farrell
+

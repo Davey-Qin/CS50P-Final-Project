@@ -1,4 +1,4 @@
-section, number, name, credits, prerequisites, instructor
+section,number,name,credits,prerequisites,instructor
 CISS, 100, Introduction to Computer Science, 4, None, Peter Wood
 CISS, 103, Introduction to Linux Operating System, 3, None, Kirk Winans
 CISS, 109, Python Programming, 4, None, Peter Wood

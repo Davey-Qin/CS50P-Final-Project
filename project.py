@@ -15,12 +15,12 @@ def load_courses(filepath):
     # This dictionary will contain 3 layers:
     #The section, course number, and whatever element desired
 
-    with open(fileppath, newline="") as csvfile:
+    with open(filepath, newline="") as csvfile:
         reader = csv.DictReader(csvfile)
         #for each row, do this
         for row in reader:
-            section = row["section"].upper()
-            number = row["number"]
+            section = row["section"].upper().strip()
+            number = row["number"].strip()
 
             #check if section is already in courses dictionary. if not, add
             if section not in courses:
@@ -37,10 +37,10 @@ def load_courses(filepath):
             # has the key value pairs of all the elements
 
             courses[section][number] = {
-                "name" : row["name"]
-                "credits" : row["credits"]
-                "prerequisites" : row["prerequisites"]
-                "instructor" : row["instructor"]
+                "name" : row["name"].strip(),
+                "credits" : row["credits"].strip(),
+                "prerequisites" : prereqs,
+                "instructor" : row["instructor"].strip()
             }
     return courses
 
@@ -66,8 +66,8 @@ def get_courses(courses, section, number):
 def build_parser():
     # Help for the users
     parser = argparse.ArgumentParser(
-        prog="courses.py"
-        description="Look up college course information"
+        prog="courses.py",
+        description="Look up college course information",
         epilog="Example: python courses.py CISS 101 -ci"
     )
 
@@ -76,7 +76,7 @@ def build_parser():
     # to decide what to display
 
     parser.add_argument(
-        "section"
+        "section",
         help="Course section identifier"
     )
 
@@ -129,6 +129,37 @@ def display_course(section, number, course, args):
         print(f"  Prereqs: {prereq_str}")
     if args.instructors:
         print(f"  Instructor: {course['instructor']}")
+
+def main():
+    parser = build_parser()
+
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(0)
+
+    args = parser.parse_args()
+
+    #show help if no flags given
+    if not any([args.name, args.credits, args.prerequisites, args.instructors]):
+        parser.print_help()
+        sys.exit(0)
+
+    courses = load_courses("courses.csv")
+    try: 
+        course = get_courses(courses, args.section, args.number)
+    except Exception as exception:
+        print(f"Exception occured: {exception}")
+        sys.exit(1)
+
+    display_course(args.section.upper(), args.number, course, args)
+    print()
+
+        
+
+
+
+if __name__ == "__main__":
+    main()
 
 
 
